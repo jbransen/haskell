@@ -90,7 +90,9 @@ import qualified Data.Vector.Storable as S
 import Proto.Tensorflow.Core.Framework.AttrValue
     ( AttrValue(..)
     , AttrValue'ListValue(..)
-    , b
+    )
+import Proto.Tensorflow.Core.Framework.AttrValue_Fields
+    ( b
     , f
     , i
     , s
@@ -103,7 +105,9 @@ import Proto.Tensorflow.Core.Framework.ResourceHandle
     (ResourceHandleProto)
 import Proto.Tensorflow.Core.Framework.Tensor as Tensor
     ( TensorProto(..)
-    , boolVal
+    )
+import Proto.Tensorflow.Core.Framework.Tensor_Fields as Tensor
+    ( boolVal
     , doubleVal
     , floatVal
     , intVal
@@ -115,7 +119,9 @@ import Proto.Tensorflow.Core.Framework.Tensor as Tensor
     )
 import Proto.Tensorflow.Core.Framework.TensorShape
     ( TensorShapeProto(..)
-    , dim
+    )
+import Proto.Tensorflow.Core.Framework.TensorShape_Fields
+    ( dim
     , size
     , unknownRank
     )

@@ -80,11 +80,15 @@ import Lens.Family2.State.Strict (MonadState, use, uses, (.=), (<>=), (%=))
 import Lens.Family2.Unchecked (lens)
 import Proto.Tensorflow.Core.Framework.Graph
     ( GraphDef
-    , node
+    )
+import Proto.Tensorflow.Core.Framework.Graph_Fields
+    ( node
     )
 import Proto.Tensorflow.Core.Framework.NodeDef
     ( NodeDef
-    , attr
+    )
+import Proto.Tensorflow.Core.Framework.NodeDef_Fields
+    ( attr
     , input
     , device
     , name
