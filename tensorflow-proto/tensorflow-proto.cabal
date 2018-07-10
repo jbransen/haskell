@@ -34,6 +34,7 @@ library
                      , Proto.Tensorflow.Core.Framework.NodeDef
                      , Proto.Tensorflow.Core.Framework.NodeDef_Fields
                      , Proto.Tensorflow.Core.Framework.OpDef
+                     , Proto.Tensorflow.Core.Framework.OpDef_Fields
                      , Proto.Tensorflow.Core.Framework.ResourceHandle
                      , Proto.Tensorflow.Core.Framework.StepStats
                      , Proto.Tensorflow.Core.Framework.Summary
