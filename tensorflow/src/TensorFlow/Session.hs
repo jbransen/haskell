@@ -45,7 +45,7 @@ import Control.Monad.Trans.Reader (ReaderT(..), ask, asks)
 import Data.ByteString (ByteString)
 import Data.Default (Default, def)
 import Data.Monoid ((<>))
-import Data.ProtoLens (showMessage)
+import Data.ProtoLens (showMessage, defMessage)
 import Data.Set (Set)
 import Data.Text.Encoding (encodeUtf8)
 import Lens.Family2 (Lens', (^.), (&), (.~))
@@ -100,7 +100,7 @@ data Options = Options
 instance Default Options where
     def = Options
           { _sessionTarget = ""
-          , _sessionConfig = def
+          , _sessionConfig = defMessage
           , _sessionTracer = const (return ())
           }
 
@@ -142,7 +142,7 @@ extend = do
     trace <- Session (asks tracer)
     nodesToExtend <- build flushNodeBuffer
     unless (null nodesToExtend) $ liftIO $ do
-        let graphDef = (def :: GraphDef) & node .~ nodesToExtend
+        let graphDef = (defMessage :: GraphDef) & node .~ nodesToExtend
         trace ("Session.extend " <> Builder.string8 (showMessage graphDef))
         FFI.extendGraph session graphDef
     -- Now that all the nodes are created, run the initializers.

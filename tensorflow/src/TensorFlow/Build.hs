@@ -66,10 +66,10 @@ import Control.Monad.Fix (MonadFix(..))
 import Control.Monad.IO.Class (MonadIO(..))
 import Control.Monad.Trans.Class (MonadTrans(..))
 import Control.Monad.Trans.State.Strict(StateT(..), mapStateT, evalStateT)
-import Data.Default (def)
 import Data.Functor.Identity (Identity(..))
 import qualified Data.Map.Strict as Map
 import Data.Monoid ((<>))
+import Data.ProtoLens (defMessage)
 import qualified Data.Set as Set
 import Data.Set (Set)
 import Data.String (IsString(..))
@@ -242,7 +242,7 @@ addInitializer (ControlNode i) = build $ initializationNodes %= (i:)
 -- | Produce a GraphDef proto representation of the nodes that are rendered in
 -- the given 'Build' action.
 asGraphDef :: Build a -> GraphDef
-asGraphDef b = def & node .~ gs ^. nodeBuffer
+asGraphDef b = defMessage & node .~ gs ^. nodeBuffer
   where
     gs = snd $ runIdentity $ runBuildT b
 
@@ -291,7 +291,7 @@ getPendingNode o = do
     let controlInputs
             = map makeDep (o ^. opControlInputs ++ Set.toList controls)
     return $ PendingNode scope (o ^. opName)
-            $ def & op .~ (unOpType (o ^. opType) :: Text)
+            $ defMessage & op .~ (unOpType (o ^. opType) :: Text)
                   & attr .~ _opAttrs o
                   & input .~ (inputs ++ controlInputs)
                   & device .~ dev

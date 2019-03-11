@@ -64,16 +64,16 @@ library
                      , Proto.Tensorflow.Core.Util.MemmappedFileSystem
                      , Proto.Tensorflow.Core.Util.SavedTensorSlice
                      , Proto.Tensorflow.Core.Util.TestLog
-  build-depends:  proto-lens >= 0.2.2 && < 0.4
-                , proto-lens-protoc >= 0.2.2.1 && < 0.4
-                , proto-lens-protobuf-types >= 0.2 && < 0.4
+  build-depends:  proto-lens >= 0.2.2 && < 0.6
+                , proto-lens-runtime >= 0.4.0.0 && < 0.6
+                , proto-lens-protobuf-types >= 0.2 && < 0.6
                 , base >= 4.7 && < 5
   default-language:    Haskell2010
   include-dirs: .
 
 custom-setup
   setup-depends: Cabal
-                , proto-lens-protoc >= 0.2 && < 0.4
+                , proto-lens-setup >= 0.4.0.0 && < 0.6
                 , base >= 4.7 && < 5
 source-repository head
   type:     git
